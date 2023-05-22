@@ -5,6 +5,17 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>COUNTDOWN</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        h1{
+            background-color: white;
+            color: black;
+        }
+    </style>
 </head>
 <body>
     <h1 id="countdown" style="font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;"></h1>
@@ -28,8 +39,8 @@
         var seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
 
         // Hiển thị thời gian còn lại
-        document.getElementById("countdown").innerHTML = days + " ngày " + hours + " giờ "
-        + minutes + " phút " + seconds + " giây";
+        document.getElementById("countdown").innerHTML = `${days.toString().length === 1? "0"+days:days}` + " ngày " + `${hours.toString().length === 1? "0"+hours:hours}` + " giờ "
+        + `${minutes.toString().length === 1? "0"+minutes:minutes}` + " phút " + `${seconds.toString().length === 1? "0"+seconds:seconds}` + " giây";
 
         // Nếu thời gian còn lại hết, hiển thị thông báo
         if (timeLeft < 0) {
