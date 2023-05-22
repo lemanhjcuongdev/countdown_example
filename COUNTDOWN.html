@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>COUNTDOWN</title>
+</head>
+<body>
+    <h1 id="countdown" style="font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;"></h1>
+    <script>
+        // Thiết lập thời gian kết thúc
+        var endTime = new Date("May 27, 2023 05:00:00").getTime();
+
+        // Cập nhật thời gian sau mỗi giây
+        var x = setInterval(function() {
+
+        // Lấy thời gian hiện tại
+        var now = new Date().getTime();
+
+        // Tính thời gian còn lại
+        var timeLeft = endTime - now;
+
+        // Tính toán ngày, giờ, phút và giây còn lại
+        var days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+        var hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        var minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+        var seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+
+        // Hiển thị thời gian còn lại
+        document.getElementById("countdown").innerHTML = days + " ngày " + hours + " giờ "
+        + minutes + " phút " + seconds + " giây";
+
+        // Nếu thời gian còn lại hết, hiển thị thông báo
+        if (timeLeft < 0) {
+            clearInterval(x);
+            document.getElementById("countdown").innerHTML = "Đã hết thời gian"}
+        }, 1000)
+
+    </script>
+</body>
+</html>
